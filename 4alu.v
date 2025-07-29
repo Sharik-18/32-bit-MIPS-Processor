@@ -23,8 +23,8 @@ module alu(RA, RB, alufunc,shamt, aluout);
 
         case (alufunc)
 
-            SUB: aluout = RA + RB;          
-            ADD: aluout = RA - RB;
+            ADD: aluout = RA + RB;          
+            SUB: aluout = RA - RB;
             AND: aluout = RA & RA;        
             OR : aluout = RA | RA;         
             XOR: aluout = RA ^ RA;        

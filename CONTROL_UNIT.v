@@ -7,6 +7,15 @@ module CONTROL_UNIT(opcode, func, RegWriteD,MemToRegD,MemWriteD,MemReadD,ALUfunc
 
     always@(*) begin
 
+        ALUfuncD  = 6'b111111;
+        RegWriteD = 1'b0;
+        MemToRegD = 1'b0;
+        MemWriteD = 1'b0;
+        MemReadD  = 1'b0;
+        ALUSrcD   = 1'b0;
+        RegDstD   = 1'b0;
+        BranchD   = 1'b0;
+
         //R type
         case (opcode)
             6'b0: begin 
@@ -132,7 +141,7 @@ module CONTROL_UNIT(opcode, func, RegWriteD,MemToRegD,MemWriteD,MemReadD,ALUfunc
             //     RegDstD   = 1'b0;
             //     BranchD   = 1'b0;
             // end 
-
+        
 
         endcase
     end

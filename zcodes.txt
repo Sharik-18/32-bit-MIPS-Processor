@@ -1,0 +1,118 @@
+// ### **MIPS Architecture Opcodes**
+// MIPS (Microprocessor without Interlocked Pipeline Stages) uses **three main instruction formats**:  
+// 1. **R-Type (Register Format)**
+// 2. **I-Type (Immediate Format)**
+// 3. **J-Type (Jump Format)**
+
+// Here’s a breakdown of **common opcodes used in MIPS architecture**:
+
+// ---
+
+// ## **1. R-Type Instructions (Opcode = 000000)**
+// - These instructions perform **register-to-register** operations.
+// - The `funct` field determines the actual operation.
+
+// | Mnemonic | Opcode (6-bit) | Funct (6-bit) | Description |
+// |----------|--------------|-------------|-------------|
+// | `add`    | `000000` | `100000` | Add (`rd = rs + rt`) |
+// | `addu`   | `000000` | `100001` | Add unsigned |
+// | `sub`    | `000000` | `100010` | Subtract (`rd = rs - rt`) |
+// | `subu`   | `000000` | `100011` | Subtract unsigned |
+// | `and`    | `000000` | `100100` | Bitwise AND |
+// | `or`     | `000000` | `100101` | Bitwise OR |
+// | `xor`    | `000000` | `100110` | Bitwise XOR |
+// | `nor`    | `000000` | `100111` | Bitwise NOR |
+// | `slt`    | `000000` | `101010` | Set less than (signed) |
+// | `sltu`   | `000000` | `101011` | Set less than (unsigned) |
+// | `sll`    | `000000` | `000000` | Shift left logical |
+// | `srl`    | `000000` | `000010` | Shift right logical |
+// | `sra`    | `000000` | `000011` | Shift right arithmetic |
+// | `jr`     | `000000` | `001000` | Jump register (`PC = rs`) |
+
+// > ✅ **Note:** R-type instructions always have `opcode = 000000`, and the operation is defined by the `funct` field.
+
+// ---
+
+// ## **2. I-Type Instructions**
+// - Used for **immediate values, memory access, and branches**.
+
+// | Mnemonic | Opcode (6-bit) | Description |
+// |----------|--------------|-------------|
+// | `addi`   | `001000` | Add immediate (`rt = rs + imm`) |
+// | `addiu`  | `001001` | Add immediate unsigned |    X
+// | `andi`   | `001100` | AND immediate |
+// | `ori`    | `001101` | OR immediate |
+// | `xori`   | `001110` | XOR immediate |
+// | `lui`    | `001111` | Load upper immediate |  X
+// | `lw`     | `100011` | Load word (`rt = Mem[rs + imm]`) |
+// | `sw`     | `101011` | Store word (`Mem[rs + imm] = rt`) |
+// | `lh`     | `100001` | Load halfword |
+// | `lhu`    | `100101` | Load halfword unsigned |
+// | `sh`     | `101001` | Store halfword |
+// | `lb`     | `100000` | Load byte |
+// | `lbu`    | `100100` | Load byte unsigned |
+// | `sb`     | `101000` | Store byte |
+// | `beq`    | `000100` | Branch if equal (`if rs == rt, jump`) |
+// | `bne`    | `000101` | Branch if not equal |
+// | `slti`   | `001010` | Set less than immediate |
+// | `sltiu`  | `001011` | Set less than immediate unsigned |
+
+// > ✅ **Note:** Immediate values are **16-bit signed** in I-Type instructions.
+
+// ---
+
+// ## **3. J-Type Instructions**
+// - Used for **unconditional jumps**.
+
+// | Mnemonic | Opcode (6-bit) | Description |
+// |----------|--------------|-------------|
+// | `j`      | `000010` | Jump (`PC = target`) |
+// | `jal`    | `000011` | Jump and link (`$ra = PC + 4`, `PC = target`) |
+
+// > ✅ **Note:** The jump address is **26-bit** in J-type instructions.
+
+// ---
+
+// ## **Special Instructions**
+// - These have unique opcodes or behavior.
+
+// | Mnemonic | Opcode (6-bit) | Funct (if R-Type) | Description |
+// |----------|--------------|----------------|-------------|
+// | `syscall` | `000000` | `001100` | System call |
+// | `break`   | `000000` | `001101` | Breakpoint |
+// | `eret`    | `010000` | `011000` | Return from exception |
+
+// ---
+
+// ## **Opcode Summary**
+// | Opcode | Instruction Category |
+// |--------|---------------------|
+// | `000000` | R-Type (depends on `funct`) |
+// | `000010` | `j` (Jump) |
+// | `000011` | `jal` (Jump and Link) |
+// | `000100` | `beq` (Branch if Equal) |
+// | `000101` | `bne` (Branch if Not Equal) |
+// | `001000` | `addi` (Add Immediate) |
+// | `001001` | `addiu` (Add Immediate Unsigned) |
+// | `001010` | `slti` (Set Less Than Immediate) |
+// | `001011` | `sltiu` (Set Less Than Immediate Unsigned) |
+// | `001100` | `andi` (AND Immediate) |
+// | `001101` | `ori` (OR Immediate) |
+// | `001110` | `xori` (XOR Immediate) |
+// | `001111` | `lui` (Load Upper Immediate) |
+// | `100000` | `lb` (Load Byte) |
+// | `100001` | `lh` (Load Halfword) |
+// | `100011` | `lw` (Load Word) |
+// | `100100` | `lbu` (Load Byte Unsigned) |
+// | `100101` | `lhu` (Load Halfword Unsigned) |
+// | `101000` | `sb` (Store Byte) |
+// | `101001` | `sh` (Store Halfword) |
+// | `101011` | `sw` (Store Word) |
+
+// ---
+
+// ### **💡 Key Takeaways**
+// - **R-Type** has `opcode = 000000`, uses the `funct` field.
+// - **I-Type** handles immediate values, memory access, and branches.
+// - **J-Type** is for jumps with a 26-bit address.
+// - **Special instructions** like `syscall` and `break` use reserved opcodes.

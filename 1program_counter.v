@@ -10,8 +10,8 @@ module PC(clk, rst, StallPC, count_in, count_out);
 
         if(rst == 1)
             count_out <= 32'b0;
-                
-        else if(StallPC != 0)
+
+        else if(StallPC !== 1)
             count_out <= count_in;
 
     end

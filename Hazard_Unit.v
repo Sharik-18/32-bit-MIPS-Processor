@@ -11,8 +11,20 @@ module Hazard_Unit(Ra_D, Rb_D, Ra_E, Rb_E, RegWrite_E, RegWrite_M, RegWrite_W, W
 
     reg lwstall, branchstall;
 
+    initial begin
+
+        StallPC = 0;
+        StallD = 0;
+        FlushE = 0;
+        F_AE = 2'b0;
+        F_BE = 2'b0;
+        F_AD = 0;
+        F_BD = 0;
+    end
+    
+
     always@(*) begin
-        
+
         lwstall = MemToReg_E && ((Ra_D == Rb_E) || (Rb_D == Rb_E));
 
         branchstall = BranchD && (RegWrite_E && ((WriteReg_E == Ra_D) || (WriteReg_E == Rb_D)) ||

@@ -9,6 +9,13 @@ module RegBank(clk, write, Ra, Rb, Rd, Data, A, B);
 
     reg [31:0]Registers[31:0];
 
+    integer i;
+
+    initial begin
+        for(i=0;i<32;i=i+1)
+            Registers[i] = 32'b0;
+    end
+
 
     always@(posedge clk) begin
 

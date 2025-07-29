@@ -15,7 +15,7 @@ module S1(clk, clr, StallD, inst_F, NPC_F, inst_D, NPC_D);
             NPC_D <= 32'b0;
         end
 
-        else if(!StallD) begin
+        else if(StallD !== 1) begin
             inst_D <= inst_F;
             NPC_D <= NPC_F;
         end

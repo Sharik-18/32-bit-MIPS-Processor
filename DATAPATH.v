@@ -110,7 +110,7 @@ module DATAPATH(clk, rst);
 
 
     //WB Stage
-    mux32 M8(MemToReg_W, MemData_W, ALUout_W, DataIn_Reg);
+    mux32 M8(MemToReg_W, ALUout_W, MemData_W, DataIn_Reg);
 
 
     //Hazard Unit

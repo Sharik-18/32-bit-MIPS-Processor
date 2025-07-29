@@ -31,6 +31,9 @@ module S2(clk, clr,
             Rb_E       <= 32'b0;
             Rd_E       <= 32'b0;
             shamt_E    <= 5'b0;
+            regA_E     <= 32'b0;
+            regB_E     <= 32'b0;
+            SignIm_E   <= 32'b0;
         end
 
         
@@ -45,7 +48,10 @@ module S2(clk, clr,
             Ra_E       <= Ra_D;      
             Rb_E       <= Rb_D;      
             Rd_E       <= Rd_D;      
-            shamt_E    <= shamt_D;  
+            shamt_E    <= shamt_D;
+            regA_E     <= regA_D;
+            regB_E     <= regB_D;
+            SignIm_E   <= SignIm_D;
         end
     end
 endmodule

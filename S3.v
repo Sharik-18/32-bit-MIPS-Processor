@@ -21,7 +21,7 @@ module S3(clk,
         RegWrite_M <= RegWrite_E;
         MemToReg_M <= MemToReg_E;
         MemWrite_M <= MemWrite_E;
-        MemRead_M  <= MemRead_M;
+        MemRead_M  <= MemRead_E;
         ALUout_M   <= ALUout_E;
         WriteData_M<= WriteData_E;
         WriteReg_M <= WriteReg_E;
